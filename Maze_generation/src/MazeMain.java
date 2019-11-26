@@ -6,10 +6,13 @@ public class MazeMain {
         frame.setSize(600, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
-        MazeGenerator generator = new MazeGenerator(frame.getWidth(), frame.getHeight(), 50);
-        generator.generate();
-        MazeGraphics mazeGraphics = new MazeGraphics(generator.getCells());
-        frame.add(mazeGraphics);
+        StackMazeGenerator generator = new StackMazeGenerator(frame.getWidth(), frame.getHeight(), 25);
+        MazeGraphics mazeGraphics = new MazeGraphics(generator.getCells(), generator, frame.getWidth(), frame.getHeight());
         frame.setVisible(true);
+        frame.add(mazeGraphics);
+        while (true) {
+            frame.revalidate();
+            frame.repaint();
+        }
     }
 }

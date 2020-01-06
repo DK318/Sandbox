@@ -154,6 +154,7 @@ public class MinesweeperGraphics {
                 }
             }
             if (countClosed == MinesweeperConst.minesCount) {
+                board.openAll();
                 agree("Win", "Congratulations. Would you like to play again?");
                 return;
             }
